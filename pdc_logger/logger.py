@@ -1,4 +1,4 @@
-from logging import Logger
+import os
 import logging
 
 from google.cloud.logging.handlers import CloudLoggingHandler
@@ -45,8 +45,9 @@ def create_logger(name, sync_cloud=False, stream=True) -> logging.Logger:
 
     
     if sync_cloud:
-        cloud_handler = get_dependency(create_cloud_handler)
-        logger.addHandler(cloud_handler)
+        if os.path.exists(config.credentials_path):
+            cloud_handler = get_dependency(create_cloud_handler)
+            logger.addHandler(cloud_handler)
     
     if stream:
         sthandler = get_dependency(create_stream_handler)    

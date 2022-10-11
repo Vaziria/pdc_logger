@@ -1,4 +1,5 @@
 from contextvars import ContextVar
+import os
 import google.cloud.logging
 
 from .configuration import get_configuration
