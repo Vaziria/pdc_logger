@@ -7,8 +7,8 @@ client_context = ContextVar('Context untuk cloud logging', default=None)
 
 
 def set_client():
-    config = get_configuration()
     
+    config = get_configuration()
     client = google.cloud.logging.Client.from_service_account_json(config.credentials_path)
     client_context.set(client)
     return client
