@@ -2,7 +2,7 @@ from pdc_logger.configuration import set_configuration, Configuration
 
 
 config = Configuration(
-    application_name="bot_chat_v1.2.3"
+    application_name="test_pdc_logger"
 )
 
 set_configuration(config)

@@ -1,5 +1,7 @@
 from contextvars import ContextVar
 import os
+import socket
+from typing import Optional
 
 from pydantic import BaseModel, Field
 
@@ -18,15 +20,27 @@ def default_log_level():
     }
     
     return level.get(mode, 20)
-    
-    
 
+
+def get_hostname():
+    return socket.gethostname()
+    
+class LabelsExtras(BaseModel):
+    username: Optional[str]
+    version: Optional[str]
+    hostname: str = Field(default_factory=get_hostname)
+    
+    
 
 class Configuration(BaseModel):
     application_name: str = 'pdc_logger'
     log_level: int = Field(default_factory=default_log_level)
     log_format: str = '[ %(levelname)s ] %(name)s : %(message)s'
-    credentials_path = 'credentials.json'
+    credentials_path: str = 'credentials.json'
+    labels: LabelsExtras = LabelsExtras()
+    
+    
+    
 
 
 def set_configuration(config: Configuration = None):

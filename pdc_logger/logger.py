@@ -25,7 +25,8 @@ def create_cloud_handler():
     config = get_configuration()
     
     gcloud_logging_handler = CloudLoggingHandler(
-        client, name=config.application_name
+        client, name=config.application_name,
+        labels=config.labels.dict(exclude_none=True)
     )
     
     return gcloud_logging_handler
