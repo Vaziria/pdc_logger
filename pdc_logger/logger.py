@@ -49,6 +49,9 @@ def create_logger(name, sync_cloud=False, stream=True) -> logging.Logger:
         if os.path.exists(config.credentials_path):
             cloud_handler = get_dependency(create_cloud_handler)
             logger.addHandler(cloud_handler)
+            
+        else:
+            print('credential logger not exist')
     
     if stream:
         sthandler = get_dependency(create_stream_handler)    
