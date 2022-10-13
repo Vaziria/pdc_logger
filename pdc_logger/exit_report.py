@@ -8,7 +8,8 @@ class ExitReport:
     
     
     def __exit__(self, exc_type, exc_value, exc_traceback):
-        logger.error(exc_value, exc_info=(exc_type, exc_value, exc_traceback))
+        if exc_traceback:
+            logger.error(exc_value, exc_info=(exc_type, exc_value, exc_traceback))
     
     
 if __name__ == '__main__':
