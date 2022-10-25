@@ -29,6 +29,7 @@ class LabelsExtras(BaseModel):
     username: Optional[str]
     version: Optional[str]
     hostname: str = Field(default_factory=get_hostname)
+    environ_type: str = 'bot'
     
     
 
