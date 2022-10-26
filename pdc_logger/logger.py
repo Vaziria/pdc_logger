@@ -2,6 +2,7 @@ import os
 import logging
 
 from google.cloud.logging.handlers import CloudLoggingHandler
+from google.cloud.logging_v2.resource import Resource
 
 from nisa_di.inject import get_dependency
 
@@ -26,7 +27,10 @@ def create_cloud_handler():
     
     gcloud_logging_handler = CloudLoggingHandler(
         client, name=config.application_name,
-        labels=config.labels.dict(exclude_none=True)
+        labels=config.labels.dict(exclude_none=True),
+        resource=Resource(
+            type=config.resource_type,
+            labels={"project_id": config.cloud_project_id })
     )
     
     return gcloud_logging_handler

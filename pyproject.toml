@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pdc_logger"
-version = "1.0.6"
+version = "1.0.7"
 description = "standarized python logger pdc"
 authors = ["vaziria <manorder123@gmail.com>"]
 readme = "README.md"

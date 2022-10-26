@@ -38,6 +38,8 @@ class Configuration(BaseModel):
     log_level: int = Field(default_factory=default_log_level)
     log_format: str = '[ %(levelname)s ] %(name)s : %(message)s'
     credentials_path: str = 'credentials.json'
+    cloud_project_id: str = 'shopeepdc'
+    resource_type: str = 'global'
     labels: LabelsExtras = LabelsExtras()
     
     
