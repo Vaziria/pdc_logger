@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pdc_logger"
-version = "1.0.7"
+version = "1.0.8"
 description = "standarized python logger pdc"
 authors = ["vaziria <manorder123@gmail.com>"]
 readme = "README.md"
@@ -9,7 +9,7 @@ readme = "README.md"
 python = "^3.9"
 pydantic = "^1.10.2"
 google-cloud-logging = "^3.2.5"
-nisa-di = "^0.3.0"
+nisa-di = "*"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.3"
