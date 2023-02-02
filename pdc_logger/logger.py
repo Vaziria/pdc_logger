@@ -33,6 +33,8 @@ def create_cloud_handler():
             labels={"project_id": config.cloud_project_id })
     )
     
+    gcloud_logging_handler.setLevel(logging.WARNING)
+    
     return gcloud_logging_handler
 
 def create_logger(name, sync_cloud=False, stream=True) -> logging.Logger:

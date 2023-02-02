@@ -11,6 +11,11 @@ def test_basic_logger():
     
     logger.warning(f"ini warnin2g {uuid4()}")
     logger.info(f"ini info {uuid4()}")
+    logger.info(f"ini info {uuid4()}")
+    logger.info(f"ini info {uuid4()}")
+    logger.info(f"ini info {uuid4()}")
+    logger.info(f"ini info {uuid4()}")
+    logger.error("test error")
     
     
 def test_basic_exit_report():
